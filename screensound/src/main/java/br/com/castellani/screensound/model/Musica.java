@@ -48,7 +48,7 @@ public class Musica {
         return "Musica{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
-                ", artista=" + artista +
+                ", artista=" + artista.getNome() +
                 '}';
     }
 }
