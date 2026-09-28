@@ -5,6 +5,7 @@ import br.com.castellani.screensound.model.Musica;
 import br.com.castellani.screensound.model.TipoArtista;
 import br.com.castellani.screensound.repository.ArtistaRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -69,7 +70,8 @@ import java.util.Scanner;
         }
 
         private void listarMusicas() {
-
+            List<Artista> artistas = repositorio.findAll();
+            artistas.forEach(System.out::println);
         }
 
         private void cadastrarMusicas() {
@@ -81,6 +83,7 @@ import java.util.Scanner;
                 var nomeMusica = leitura.nextLine();
                 Musica musica = new Musica(nomeMusica);
                 musica.setArtista(artista.get());
+                artista.get().getMusica().add(musica);
                 repositorio.save(artista.get());
             } else {
                 System.out.println("Artista não encontrado!");
