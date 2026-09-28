@@ -71,7 +71,9 @@ import java.util.Scanner;
 
         private void listarMusicas() {
             List<Artista> artistas = repositorio.findAll();
-            artistas.forEach(System.out::println);
+            artistas.forEach(a ->
+                a.getMusica().forEach(System.out::println));
+
         }
 
         private void cadastrarMusicas() {
