@@ -4,6 +4,8 @@ import br.com.castellani.screensound.model.Artista;
 import br.com.castellani.screensound.model.Musica;
 import br.com.castellani.screensound.model.TipoArtista;
 import br.com.castellani.screensound.repository.ArtistaRepository;
+import br.com.castellani.screensound.service.ConsultaChatGPT;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -64,6 +66,10 @@ import java.util.Scanner;
                 }
 
         private void pesquisarDadosDoArtista() {
+            System.out.println("Pesquisar dados sobre qual artista? ");
+            var nome = leitura.nextLine();
+            var resposta = ConsultaChatGPT.obterInformacao(nome);
+            System.out.println(resposta.trim());
         }
 
         private void buscarMusicasPorArtista() {
